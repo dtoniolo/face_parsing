@@ -1,7 +1,7 @@
 import os
 import sys
 import shutil
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def clean_repo():
@@ -28,13 +28,16 @@ if _version is None:
     sys.exit('Sorry, cannot find version information.')
 
 # Installation
+repository_folder = os.path.realpath(os.path.dirname(__file__))
+parent_package_name = 'ibug'
 config = {
     'name': 'face_parsing',
     'version': _version,
     'description': 'RoI Tanh-polar Transformer Network for Face Parsing in the Wild.',
     'author': 'Yiming Lin',
     'author_email': 'yimingling.ibug@gmail.com',
-    'packages': ['ibug.face_parsing'],
+    'packages': ['.'.join([parent_package_name, package]) for package in
+                     find_packages(os.path.join(repository_folder, parent_package_name))],
     'install_requires': ['numpy>=1.17.0', 'scipy>=1.1.0', 'torch>=1.6.0',
                          'torchvision>=0.7.0', 'opencv-python>= 3.4.2'],
     'zip_safe': False
