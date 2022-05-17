@@ -31,7 +31,7 @@ if _version is None:
 repository_folder = os.path.realpath(os.path.dirname(__file__))
 parent_package_name = 'ibug'
 config = {
-    'name': 'face_parsing',
+    'name': 'ibug.face_parsing',
     'version': _version,
     'description': 'RoI Tanh-polar Transformer Network for Face Parsing in the Wild.',
     'author': 'Yiming Lin',
